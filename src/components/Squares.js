@@ -23,19 +23,11 @@ export default function Squares() {
   const [activeSquare, setActiveSquare] = useState(null)
 
   const getClassName = element => {
-    if (element === activeSquare) {
-      return 'active'
-    } else { 
-        return ''
-    }
+    return element === activeSquare ? 'active' : ''
   };
 
   const markActive = (element) => {
-    if (activeSquare === element) {
-      setActiveSquare('')
-    } else {
-      setActiveSquare(element)
-    }
+    activeSquare === element ? setActiveSquare(null) : setActiveSquare(element)
   };
 
   return (
