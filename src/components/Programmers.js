@@ -26,9 +26,10 @@ export default function Programmers() {
   const [programmers, setProgrammers] = useState(listOfAwesome)
   const [featured, setFeatured] = useState(null)
 
-  // const getNameOfFeatured = () => {
-    
-  // };
+  const getNameOfFeatured = () => {
+    const featuredName = programmers[featured-1].name
+    return featuredName
+  };
 
   const style = {
     fontSize: '1.5em',
@@ -46,7 +47,7 @@ export default function Programmers() {
             <div className='programmer' key={element.id}>
               {element.name} <button onClick={(event) => {
                 event.stopPropagation()
-                setFeatured(element.name)
+                setFeatured(element.id)
                 }}>Feature</button>
             </div>
           )
@@ -55,7 +56,7 @@ export default function Programmers() {
       <div id='featured' style={style}>
         {
           featured != null
-            ? `🎉 Let's celebrate ${featured}! 🥳`
+            ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳`
             : 'Pick an awesome programmer'
         }
       </div>
